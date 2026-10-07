@@ -30,9 +30,17 @@ def render_hero(profile, photo_path):
         st.markdown(
             f"""
             <div class="hero-card">
-                <div class="eyebrow">Software Developer Portfolio</div>
+                <div class="hero-glow"></div>
+                <div class="hero-glow-2"></div>
+                <div class="eyebrow">
+                    <i class="fa-solid fa-sparkles" style="font-size:0.7rem;"></i>
+                    Software Developer Portfolio
+                </div>
                 <div class="hero-name">{_esc(profile['name'])}</div>
-                <div class="hero-role">{_esc(profile['role'])}</div>
+                <div class="hero-role">
+                    <i class="fa-solid fa-terminal" style="font-size:0.85rem; margin-right:0.4rem;"></i>
+                    {_esc(profile['role'])}
+                </div>
                 <p class="hero-summary">{_esc(profile['summary'])}</p>
                 {links}
             </div>
@@ -51,6 +59,7 @@ def render_section_title(title, subtitle):
         f"""
         <div class="section-title">
             <h2>{_esc(title)}</h2>
+            <div class="title-bar"></div>
             <p>{_esc(subtitle)}</p>
         </div>
         """,
@@ -76,9 +85,15 @@ def render_stats(stats):
 
 def render_skills(skills):
     columns = st.columns(3)
-    icons = ["fa-solid fa-code", "fa-solid fa-layer-group", "fa-solid fa-database"]
+    icons = [
+        "fa-solid fa-code",
+        "fa-solid fa-layer-group",
+        "fa-solid fa-database",
+    ]
 
-    for col, ((category, items), icon) in zip(columns, zip(skills.items(), icons)):
+    for idx, (col, ((category, items), icon)) in enumerate(
+        zip(columns, zip(skills.items(), icons))
+    ):
         pills = "".join(
             f'<span class="skill-pill">{_esc(item)}</span>' for item in items
         )
@@ -86,7 +101,7 @@ def render_skills(skills):
         with col:
             st.markdown(
                 f"""
-                <div class="glass-card skill-card">
+                <div class="glass-card skill-card cat-{idx}">
                     <div class="skill-heading">
                         <i class="{icon}"></i>
                         <span>{_esc(category)}</span>
@@ -105,11 +120,14 @@ def render_experience(experience):
         st.markdown(
             f"""
             <div class="glass-card timeline-card">
-                <h3><i class="{item['icon']}"></i> {_esc(item['role'])} @ {_esc(item['company'])}</h3>
+                <h3>
+                    <i class="{item['icon']}" style="margin-right:0.5rem;"></i>
+                    {_esc(item['role'])} @ {_esc(item['company'])}
+                </h3>
                 <div class="experience-meta">
-                    <i class="fa-regular fa-calendar"></i> {_esc(item['period'])}
-                    &nbsp;&nbsp;·&nbsp;&nbsp;
-                    <i class="fa-solid fa-location-dot"></i> {_esc(item['location'])}
+                    <span><i class="fa-regular fa-calendar" style="margin-right:0.3rem;"></i>{_esc(item['period'])}</span>
+                    <span style="color:rgba(148,163,184,0.4);">·</span>
+                    <span><i class="fa-solid fa-location-dot" style="margin-right:0.3rem;"></i>{_esc(item['location'])}</span>
                 </div>
                 <ul class="experience-list">{points}</ul>
             </div>
@@ -130,12 +148,14 @@ def render_projects(projects):
             st.markdown(
                 f"""
                 <div class="glass-card project-card">
-                    <img class="project-image" src="{_esc(project['image'])}" alt="{_esc(project['title'])}">
+                    <div class="project-image-wrap">
+                        <img class="project-image" src="{_esc(project['image'])}" alt="{_esc(project['title'])}">
+                    </div>
                     <div class="project-body">
                         <h3>{_esc(project['title'])}</h3>
                         <div class="project-role">{_esc(project['role'])}</div>
                         <div class="project-description">{_esc(project['description'])}</div>
-                        <div style="margin-top: .9rem;">{tags}</div>
+                        <div style="margin-top:1rem;">{tags}</div>
                     </div>
                 </div>
                 """,
@@ -156,7 +176,7 @@ def render_education(education, cv_text):
                     </div>
                     <div>
                         <h3 style="margin:0">{_esc(item['title'])}</h3>
-                        <p style="color:#94a3b8;margin:.35rem 0 0">
+                        <p style="color:var(--muted);margin:.35rem 0 0;font-size:0.9rem;">
                             {_esc(item['institution'])} · {_esc(item['year'])}
                         </p>
                     </div>
@@ -166,7 +186,7 @@ def render_education(education, cv_text):
             )
 
     st.download_button(
-        label="Download Full Resume",
+        label="⬇  Download Full Resume",
         data=cv_text,
         file_name="Mohamed_Musharraf_CV.txt",
         mime="text/plain",
@@ -178,10 +198,13 @@ def render_contact_form():
     with st.container(border=True):
         st.markdown(
             """
-            <div class="eyebrow">Get In Touch</div>
-            <h2 style="margin-bottom:.35rem">Let's build something together.</h2>
-            <p style="color:var(--muted); margin-top:0">
-                Have a project, idea, or opportunity? Send me a message.
+            <div class="eyebrow">
+                <i class="fa-solid fa-paper-plane" style="font-size:0.7rem;"></i>
+                Get In Touch
+            </div>
+            <h2 style="margin-bottom:.4rem">Let's build something together.</h2>
+            <p style="color:var(--muted); margin-top:0;line-height:1.7;">
+                Have a project, idea, or opportunity? Send me a message and I'll get back to you.
             </p>
             """,
             unsafe_allow_html=True,
@@ -195,20 +218,20 @@ def render_contact_form():
                 placeholder="Tell me a little about your project or idea.",
                 height=130,
             )
-            submitted = st.form_submit_button("Send Message", width="stretch")
+            submitted = st.form_submit_button("🚀  Send Message", width="stretch")
 
             if submitted:
                 if name.strip() and email.strip() and message.strip():
-                    st.success(f"Thank you, {name}. Your message has been received.")
+                    st.success(f"✅ Thank you, {name}! Your message has been received.")
                 else:
-                    st.error("Please complete all fields before sending.")
+                    st.error("⚠️  Please complete all fields before sending.")
 
 
 def render_footer():
     st.markdown(
         """
         <div class="footer">
-            © 2026 Mohamed Musharraf · Built with Python & Streamlit
+            <span class="footer-text">© 2026 Mohamed Musharraf · Built with ❤️ using Python &amp; Streamlit</span>
         </div>
         """,
         unsafe_allow_html=True,

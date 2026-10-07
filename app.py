@@ -27,7 +27,7 @@ with theme_col:
     st.toggle("Light mode", key="light_mode", help="Switch between dark and light themes")
 
 # Load the selected theme. The toggle triggers Streamlit's rerun automatically.
-load_styles()
+load_styles(light_mode=st.session_state.light_mode)
 
 render_hero(PROFILE, PHOTO_PATH)
 render_section_title("Developer Profile", "A quick overview of my professional focus.")
