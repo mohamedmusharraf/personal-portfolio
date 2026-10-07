@@ -4,35 +4,103 @@ import streamlit as st
 def load_styles(light_mode=False):
     if light_mode:
         theme = {
-            "bg": "#f0f4ff",
-            "surface": "rgba(255, 255, 255, 0.80)",
-            "surface_strong": "rgba(255, 255, 255, 0.96)",
-            "border": "rgba(15, 23, 42, 0.10)",
-            "text": "#0f172a",
-            "muted": "#475569",
-            "input_bg": "#ffffff",
-            "input_text": "#0f172a",
-            "input_border": "#cbd5e1",
-            "orb1": "rgba(99, 102, 241, 0.25)",
-            "orb2": "rgba(236, 72, 153, 0.20)",
-            "orb3": "rgba(34, 211, 238, 0.22)",
-            "orb4": "rgba(251, 146, 60, 0.18)",
+            # ── Layout / Background ──────────────────────────────────────────
+            "bg":            "#f5f3ff",          # soft lavender-white
+            "surface":       "rgba(255,255,255,0.78)",
+            "surface_strong":"rgba(255,255,255,0.96)",
+            "border":        "rgba(99,102,241,0.14)",
+
+            # ── Typography ───────────────────────────────────────────────────
+            "text":          "#1e1b4b",          # deep indigo-black
+            "muted":         "#6d6a8a",          # warm purple-grey
+
+            # ── Inputs ───────────────────────────────────────────────────────
+            "input_bg":      "#ffffff",
+            "input_text":    "#1e1b4b",
+            "input_border":  "#c4b5fd",          # violet tint
+
+            # ── Aurora orbs ──────────────────────────────────────────────────
+            "orb1":  "rgba(139,92,246,0.22)",    # violet
+            "orb2":  "rgba(236,72,153,0.18)",    # pink
+            "orb3":  "rgba(6,182,212,0.18)",     # cyan
+            "orb4":  "rgba(251,146,60,0.16)",    # orange
+
+            # ── Hero glows ───────────────────────────────────────────────────
+            "hero_glow_opacity":   "0.18",
+            "hero_glow2_opacity":  "0.13",
+
+            # ── Skill pill colours (light-specific, darker for readability) ──
+            "pill_cyan_bg":    "rgba(6,182,212,0.12)",
+            "pill_cyan_bdr":   "rgba(6,182,212,0.35)",
+            "pill_cyan_txt":   "#0e7490",
+
+            "pill_violet_bg":  "rgba(139,92,246,0.12)",
+            "pill_violet_bdr": "rgba(139,92,246,0.35)",
+            "pill_violet_txt": "#6d28d9",
+
+            "pill_pink_bg":    "rgba(236,72,153,0.12)",
+            "pill_pink_bdr":   "rgba(236,72,153,0.35)",
+            "pill_pink_txt":   "#be185d",
+
+            # ── Card hover shadow ─────────────────────────────────────────────
+            "card_shadow":   "0 32px 80px rgba(99,102,241,0.14)",
+            "card_shadow2":  "0 0 40px rgba(139,92,246,0.10)",
+
+            # ── Misc ──────────────────────────────────────────────────────────
+            "stat_value_end": "#7c3aed",
+            "hero_name_start": "#1e1b4b",
+            "proj_role_end":   "#7c3aed",
+            "footer_from":     "#6d6a8a",
         }
     else:
         theme = {
-            "bg": "#04060f",
-            "surface": "rgba(10, 15, 35, 0.75)",
-            "surface_strong": "rgba(14, 20, 45, 0.94)",
-            "border": "rgba(148, 163, 184, 0.12)",
-            "text": "#f1f5f9",
-            "muted": "#94a3b8",
-            "input_bg": "#0d1226",
-            "input_text": "#f1f5f9",
-            "input_border": "#1e2d4a",
-            "orb1": "rgba(99, 102, 241, 0.30)",
-            "orb2": "rgba(236, 72, 153, 0.22)",
-            "orb3": "rgba(34, 211, 238, 0.25)",
-            "orb4": "rgba(251, 146, 60, 0.18)",
+            # ── Layout / Background ──────────────────────────────────────────
+            "bg":            "#04060f",
+            "surface":       "rgba(10,15,35,0.75)",
+            "surface_strong":"rgba(14,20,45,0.94)",
+            "border":        "rgba(148,163,184,0.12)",
+
+            # ── Typography ───────────────────────────────────────────────────
+            "text":          "#f1f5f9",
+            "muted":         "#94a3b8",
+
+            # ── Inputs ───────────────────────────────────────────────────────
+            "input_bg":      "#0d1226",
+            "input_text":    "#f1f5f9",
+            "input_border":  "#1e2d4a",
+
+            # ── Aurora orbs ──────────────────────────────────────────────────
+            "orb1":  "rgba(99,102,241,0.30)",
+            "orb2":  "rgba(236,72,153,0.22)",
+            "orb3":  "rgba(34,211,238,0.25)",
+            "orb4":  "rgba(251,146,60,0.18)",
+
+            # ── Hero glows ───────────────────────────────────────────────────
+            "hero_glow_opacity":   "0.20",
+            "hero_glow2_opacity":  "0.15",
+
+            # ── Skill pill colours ───────────────────────────────────────────
+            "pill_cyan_bg":    "rgba(34,211,238,0.18)",
+            "pill_cyan_bdr":   "rgba(34,211,238,0.30)",
+            "pill_cyan_txt":   "#22d3ee",
+
+            "pill_violet_bg":  "rgba(167,139,250,0.18)",
+            "pill_violet_bdr": "rgba(167,139,250,0.30)",
+            "pill_violet_txt": "#a78bfa",
+
+            "pill_pink_bg":    "rgba(244,114,182,0.18)",
+            "pill_pink_bdr":   "rgba(244,114,182,0.30)",
+            "pill_pink_txt":   "#f472b6",
+
+            # ── Card hover shadow ─────────────────────────────────────────────
+            "card_shadow":   "0 32px 90px rgba(0,0,0,0.28)",
+            "card_shadow2":  "0 0 50px rgba(99,102,241,0.12)",
+
+            # ── Misc ──────────────────────────────────────────────────────────
+            "stat_value_end": "#22d3ee",
+            "hero_name_start": "#f1f5f9",
+            "proj_role_end":   "#a78bfa",
+            "footer_from":     "#64748b",
         }
 
     st.markdown(
@@ -50,52 +118,54 @@ def load_styles(light_mode=False):
 
         <style>
 
+        /* =========================================
+           CSS CUSTOM PROPERTIES
+        ========================================= */
+
         :root {{
-            --bg: {theme["bg"]};
-            --surface: {theme["surface"]};
-            --surface-strong: {theme["surface_strong"]};
-            --border: {theme["border"]};
-            --text: {theme["text"]};
-            --muted: {theme["muted"]};
-            --input-bg: {theme["input_bg"]};
-            --input-text: {theme["input_text"]};
-            --input-border: {theme["input_border"]};
+            --bg:            {theme["bg"]};
+            --surface:       {theme["surface"]};
+            --surface-strong:{theme["surface_strong"]};
+            --border:        {theme["border"]};
+            --text:          {theme["text"]};
+            --muted:         {theme["muted"]};
 
-            /* Vivid palette */
-            --cyan:    #22d3ee;
-            --blue:    #60a5fa;
-            --indigo:  #818cf8;
-            --violet:  #a78bfa;
-            --pink:    #f472b6;
-            --rose:    #fb7185;
-            --orange:  #fb923c;
-            --amber:   #fbbf24;
-            --green:   #34d399;
-            --teal:    #2dd4bf;
+            --input-bg:      {theme["input_bg"]};
+            --input-text:    {theme["input_text"]};
+            --input-border:  {theme["input_border"]};
 
-            --radius: 24px;
+            /* Vivid accent palette */
+            --cyan:   #22d3ee;
+            --blue:   #60a5fa;
+            --indigo: #818cf8;
+            --violet: #a78bfa;
+            --pink:   #f472b6;
+            --rose:   #fb7185;
+            --orange: #fb923c;
+            --amber:  #fbbf24;
+            --green:  #34d399;
+            --teal:   #2dd4bf;
+
+            --radius:    24px;
             --radius-sm: 14px;
         }}
 
         html {{ scroll-behavior: smooth; }}
-
         *, *::before, *::after {{ box-sizing: border-box; margin: 0; }}
-
         body {{ font-family: 'Inter', sans-serif; }}
 
         /* =========================================
-           ANIMATED BACKGROUND
+           ANIMATED AURORA BACKGROUND
         ========================================= */
 
         .stApp {{
             background: var(--bg);
             color: var(--text);
             overflow-x: hidden;
-            transition: background 0.4s ease, color 0.4s ease;
-            position: relative;
+            transition: background 0.5s ease, color 0.5s ease;
         }}
 
-        /* Multi-layer aurora background */
+        /* Multi-layer aurora */
         .stApp::before {{
             content: "";
             position: fixed;
@@ -113,7 +183,7 @@ def load_styles(light_mode=False):
 
         .stApp > * {{ position: relative; z-index: 1; }}
 
-        /* Animated floating orbs */
+        /* Big spinning orb top-right */
         .stApp::after {{
             content: "";
             position: fixed;
@@ -149,14 +219,11 @@ def load_styles(light_mode=False):
 
         h1, h2, h3, h4 {{ color: var(--text); font-family: 'Space Grotesk', sans-serif; }}
         p, label {{ color: var(--text); }}
-
         .stCaption,
-        [data-testid="stCaptionContainer"] {{
-            color: var(--muted) !important;
-        }}
+        [data-testid="stCaptionContainer"] {{ color: var(--muted) !important; }}
 
         /* =========================================
-           GLASS CARDS — enhanced
+           GLASS CARDS
         ========================================= */
 
         .glass-card,
@@ -169,16 +236,16 @@ def load_styles(light_mode=False):
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             box-shadow:
-                0 0 0 1px rgba(255,255,255,0.04) inset,
-                0 24px 80px rgba(0, 0, 0, 0.22);
+                0 0 0 1px rgba(255,255,255,0.06) inset,
+                0 24px 80px rgba(0,0,0,0.14);
             transition:
-                background 0.35s ease,
-                border-color 0.35s ease,
+                background 0.4s ease,
+                border-color 0.4s ease,
                 box-shadow 0.4s ease,
-                transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+                transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
         }}
 
-        /* Shimmering rainbow border on hover via pseudo-element */
+        /* Animated rainbow conic border on hover */
         .glass-card::before {{
             content: "";
             position: absolute;
@@ -202,16 +269,14 @@ def load_styles(light_mode=False):
             animation: borderSpin 4s linear infinite;
         }}
 
-        .glass-card:hover::before {{
-            opacity: 1;
-        }}
+        .glass-card:hover::before {{ opacity: 1; }}
 
         .glass-card:hover {{
             transform: translateY(-7px);
             box-shadow:
-                0 0 0 1px rgba(255,255,255,0.07) inset,
-                0 32px 90px rgba(0, 0, 0, 0.28),
-                0 0 40px rgba(99, 102, 241, 0.12);
+                0 0 0 1px rgba(255,255,255,0.08) inset,
+                {theme["card_shadow"]},
+                {theme["card_shadow2"]};
         }}
 
         /* =========================================
@@ -220,16 +285,9 @@ def load_styles(light_mode=False):
 
         .hero-card {{
             padding: 3rem;
-            animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-            border-image: none;
-            background: linear-gradient(
-                135deg,
-                rgba(14, 20, 50, 0.85) 0%,
-                rgba(10, 15, 38, 0.80) 100%
-            );
+            animation: revealUp 0.9s cubic-bezier(0.16,1,0.3,1) both;
         }}
 
-        /* Glowing orb inside hero */
         .hero-card .hero-glow {{
             position: absolute;
             width: 320px;
@@ -238,14 +296,10 @@ def load_styles(light_mode=False):
             top: -100px;
             background: conic-gradient(
                 from 0deg,
-                var(--cyan),
-                var(--violet),
-                var(--pink),
-                var(--orange),
-                var(--cyan)
+                var(--cyan), var(--violet), var(--pink), var(--orange), var(--cyan)
             );
             filter: blur(80px);
-            opacity: 0.20;
+            opacity: {theme["hero_glow_opacity"]};
             animation: orbSpin 12s linear infinite;
             border-radius: 50%;
         }}
@@ -258,7 +312,7 @@ def load_styles(light_mode=False):
             bottom: -60px;
             background: radial-gradient(circle, var(--green), var(--teal), transparent);
             filter: blur(60px);
-            opacity: 0.15;
+            opacity: {theme["hero_glow2_opacity"]};
             animation: floatGlow 9s ease-in-out infinite alternate;
             border-radius: 50%;
         }}
@@ -267,7 +321,6 @@ def load_styles(light_mode=False):
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
-            color: var(--cyan);
             font-size: 0.75rem;
             font-weight: 800;
             letter-spacing: 0.2em;
@@ -286,7 +339,7 @@ def load_styles(light_mode=False):
             margin: 0 0 1rem;
             background: linear-gradient(
                 125deg,
-                var(--text) 0%,
+                {theme["hero_name_start"]} 0%,
                 var(--cyan) 25%,
                 var(--violet) 50%,
                 var(--pink) 75%,
@@ -318,9 +371,7 @@ def load_styles(light_mode=False):
            PROFILE IMAGE
         ========================================= */
 
-        .profile-image {{
-            position: relative;
-        }}
+        .profile-image {{ position: relative; }}
 
         .profile-image::before {{
             content: "";
@@ -336,17 +387,15 @@ def load_styles(light_mode=False):
 
         .profile-image img {{
             border-radius: 20px;
-            border: 2px solid rgba(255,255,255,0.08);
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+            border: 2px solid rgba(255,255,255,0.10);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.28);
             transition: transform 0.4s ease;
         }}
 
-        .profile-image:hover img {{
-            transform: scale(1.03);
-        }}
+        .profile-image:hover img {{ transform: scale(1.03); }}
 
         /* =========================================
-           LINKS / SOCIAL BUTTONS
+           SOCIAL LINKS
         ========================================= */
 
         .link-row {{
@@ -362,13 +411,13 @@ def load_styles(light_mode=False):
             gap: 0.55rem;
             padding: 0.70rem 1.1rem;
             border-radius: var(--radius-sm);
-            border: 1px solid rgba(255,255,255,0.12);
-            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            background: var(--surface);
             color: var(--text) !important;
             text-decoration: none !important;
             font-weight: 600;
             font-size: 0.9rem;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
             position: relative;
             overflow: hidden;
         }}
@@ -386,17 +435,11 @@ def load_styles(light_mode=False):
             transform: translateY(-4px) scale(1.04);
             border-color: transparent;
             color: #fff !important;
-            box-shadow: 0 12px 28px rgba(99, 102, 241, 0.30);
+            box-shadow: 0 12px 28px rgba(99,102,241,0.30);
         }}
 
-        .icon-link:hover::before {{
-            opacity: 1;
-        }}
-
-        .icon-link > * {{
-            position: relative;
-            z-index: 1;
-        }}
+        .icon-link:hover::before {{ opacity: 1; }}
+        .icon-link > * {{ position: relative; z-index: 1; }}
 
         /* =========================================
            SECTION TITLES
@@ -423,7 +466,7 @@ def load_styles(light_mode=False):
             width: 60px;
             border-radius: 4px;
             background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink));
-            margin: 0.5rem 0 0.5rem;
+            margin: 0.5rem 0;
             animation: barGrow 1s ease both;
         }}
 
@@ -434,7 +477,7 @@ def load_styles(light_mode=False):
         }}
 
         /* =========================================
-           STATS — colorful accent cards
+           STAT CARDS
         ========================================= */
 
         .stat-card {{
@@ -449,9 +492,7 @@ def load_styles(light_mode=False):
         .stat-card:nth-child(3) {{ --accent: var(--pink);   }}
         .stat-card:nth-child(4) {{ --accent: var(--orange); }}
 
-        .stat-card:hover {{
-            transform: translateY(-8px) scale(1.02);
-        }}
+        .stat-card:hover {{ transform: translateY(-8px) scale(1.02); }}
 
         .stat-icon {{
             font-size: 1.6rem;
@@ -459,7 +500,6 @@ def load_styles(light_mode=False):
             filter: drop-shadow(0 0 8px currentColor);
         }}
 
-        /* Each stat card gets a unique icon color */
         .stat-card:nth-child(1) .stat-icon {{ color: var(--cyan);   }}
         .stat-card:nth-child(2) .stat-icon {{ color: var(--violet); }}
         .stat-card:nth-child(3) .stat-icon {{ color: var(--pink);   }}
@@ -477,13 +517,13 @@ def load_styles(light_mode=False):
             font-weight: 800;
             font-size: 1.05rem;
             margin-top: 0.4rem;
-            background: linear-gradient(90deg, var(--text), var(--text) 60%, var(--accent, var(--cyan)));
+            background: linear-gradient(90deg, var(--text) 0%, {theme["stat_value_end"]} 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }}
 
         /* =========================================
-           SKILLS — colorful pills per category
+           SKILL CARDS
         ========================================= */
 
         .skill-card {{
@@ -501,29 +541,40 @@ def load_styles(light_mode=False):
             margin-bottom: 1.1rem;
         }}
 
-        /* Per-category heading colors */
-        .skill-card.cat-0 .skill-heading {{ color: var(--cyan);   }}
-        .skill-card.cat-0 .skill-heading i {{ color: var(--cyan);   filter: drop-shadow(0 0 6px var(--cyan)); }}
-        .skill-card.cat-1 .skill-heading {{ color: var(--violet); }}
-        .skill-card.cat-1 .skill-heading i {{ color: var(--violet); filter: drop-shadow(0 0 6px var(--violet)); }}
-        .skill-card.cat-2 .skill-heading {{ color: var(--pink);   }}
-        .skill-card.cat-2 .skill-heading i {{ color: var(--pink);   filter: drop-shadow(0 0 6px var(--pink)); }}
-
-        /* Per-category pill gradients */
-        .skill-card.cat-0 .skill-pill {{
-            background: linear-gradient(135deg, rgba(34,211,238,0.18), rgba(34,211,238,0.06));
-            border-color: rgba(34,211,238,0.30);
+        /* Category 0 — Cyan */
+        .skill-card.cat-0 .skill-heading {{ color: #0e7490; }}
+        .skill-card.cat-0 .skill-heading i {{
             color: var(--cyan);
+            filter: drop-shadow(0 0 6px var(--cyan));
+        }}
+        .skill-card.cat-0 .skill-pill {{
+            background:    {theme["pill_cyan_bg"]};
+            border-color:  {theme["pill_cyan_bdr"]};
+            color:         {theme["pill_cyan_txt"]};
+        }}
+
+        /* Category 1 — Violet */
+        .skill-card.cat-1 .skill-heading {{ color: #6d28d9; }}
+        .skill-card.cat-1 .skill-heading i {{
+            color: var(--violet);
+            filter: drop-shadow(0 0 6px var(--violet));
         }}
         .skill-card.cat-1 .skill-pill {{
-            background: linear-gradient(135deg, rgba(167,139,250,0.18), rgba(167,139,250,0.06));
-            border-color: rgba(167,139,250,0.30);
-            color: var(--violet);
+            background:    {theme["pill_violet_bg"]};
+            border-color:  {theme["pill_violet_bdr"]};
+            color:         {theme["pill_violet_txt"]};
+        }}
+
+        /* Category 2 — Pink */
+        .skill-card.cat-2 .skill-heading {{ color: #be185d; }}
+        .skill-card.cat-2 .skill-heading i {{
+            color: var(--pink);
+            filter: drop-shadow(0 0 6px var(--pink));
         }}
         .skill-card.cat-2 .skill-pill {{
-            background: linear-gradient(135deg, rgba(244,114,182,0.18), rgba(244,114,182,0.06));
-            border-color: rgba(244,114,182,0.30);
-            color: var(--pink);
+            background:    {theme["pill_pink_bg"]};
+            border-color:  {theme["pill_pink_bdr"]};
+            color:         {theme["pill_pink_txt"]};
         }}
 
         .skill-pill {{
@@ -534,14 +585,14 @@ def load_styles(light_mode=False):
             font-size: 0.80rem;
             font-weight: 700;
             border: 1px solid var(--border);
-            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
             cursor: default;
         }}
 
         .skill-pill:hover {{
             transform: translateY(-3px) scale(1.08);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-            filter: brightness(1.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            filter: brightness(1.15);
         }}
 
         /* =========================================
@@ -594,18 +645,9 @@ def load_styles(light_mode=False):
             line-height: 1.9;
         }}
 
-        .experience-list li {{
-            margin-bottom: 0.35rem;
-            transition: color 0.2s;
-        }}
-
-        .experience-list li::marker {{
-            color: var(--cyan);
-        }}
-
-        .experience-list li:hover {{
-            color: var(--text);
-        }}
+        .experience-list li {{ margin-bottom: 0.35rem; transition: color 0.2s; }}
+        .experience-list li::marker {{ color: var(--cyan); }}
+        .experience-list li:hover {{ color: var(--text); }}
 
         /* =========================================
            PROJECTS
@@ -617,18 +659,8 @@ def load_styles(light_mode=False):
             animation: revealUp 0.8s ease both;
         }}
 
-        /* Each project card accent color */
-        .project-card:nth-child(1) {{ --proj-accent: var(--cyan);   }}
-        .project-card:nth-child(2) {{ --proj-accent: var(--violet); }}
-        .project-card:nth-child(3) {{ --proj-accent: var(--pink);   }}
-        .project-card:nth-child(4) {{ --proj-accent: var(--orange); }}
-
         .project-card:hover {{
             transform: translateY(-10px);
-            box-shadow:
-                0 0 0 1px rgba(255,255,255,0.07) inset,
-                0 30px 70px rgba(0,0,0,0.28),
-                0 0 50px rgba(99, 102, 241, 0.12);
         }}
 
         .project-image-wrap {{
@@ -650,21 +682,14 @@ def load_styles(light_mode=False):
             filter: saturate(1.3) brightness(0.9);
         }}
 
-        /* Overlay gradient on image */
         .project-image-wrap::after {{
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(
-                to bottom,
-                transparent 40%,
-                rgba(4, 6, 15, 0.6) 100%
-            );
+            background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.45) 100%);
         }}
 
-        .project-body {{
-            padding: 1.5rem;
-        }}
+        .project-body {{ padding: 1.5rem; }}
 
         .project-body h3 {{
             color: var(--text);
@@ -679,16 +704,12 @@ def load_styles(light_mode=False):
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 0.75rem;
-            background: linear-gradient(90deg, var(--cyan), var(--violet));
+            background: linear-gradient(90deg, var(--cyan), {theme["proj_role_end"]});
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }}
 
-        .project-description {{
-            color: var(--muted);
-            line-height: 1.75;
-            font-size: 0.93rem;
-        }}
+        .project-description {{ color: var(--muted); line-height: 1.75; font-size: 0.93rem; }}
 
         /* =========================================
            EDUCATION
@@ -717,34 +738,22 @@ def load_styles(light_mode=False):
         .education-card:nth-child(1) .education-icon {{
             background: linear-gradient(135deg, rgba(34,211,238,0.20), rgba(99,102,241,0.20));
             color: var(--cyan);
-            box-shadow: 0 0 20px rgba(34,211,238,0.18);
+            box-shadow: 0 0 20px rgba(34,211,238,0.20);
         }}
 
         .education-card:nth-child(2) .education-icon {{
             background: linear-gradient(135deg, rgba(244,114,182,0.20), rgba(167,139,250,0.20));
             color: var(--pink);
-            box-shadow: 0 0 20px rgba(244,114,182,0.18);
+            box-shadow: 0 0 20px rgba(244,114,182,0.20);
         }}
 
-        .education-card:hover .education-icon {{
-            transform: rotate(10deg) scale(1.1);
-        }}
+        .education-card:hover .education-icon {{ transform: rotate(10deg) scale(1.1); }}
 
-        .education-card h3 {{
-            font-size: 1rem;
-            font-weight: 700;
-            margin: 0 0 0.25rem;
-        }}
+        .education-card h3 {{ font-size: 1rem; font-weight: 700; margin: 0 0 0.25rem; }}
 
         /* =========================================
-           CONTACT SECTION
+           CONTACT FORM
         ========================================= */
-
-        .contact-card {{
-            padding: 2.2rem;
-            margin-top: 3rem;
-            margin-bottom: 0;
-        }}
 
         div[data-testid="stForm"] {{
             margin-top: 0 !important;
@@ -752,10 +761,9 @@ def load_styles(light_mode=False):
             border: 1px solid var(--border) !important;
             border-radius: 0 0 var(--radius) var(--radius) !important;
             background: var(--surface) !important;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.10) !important;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08) !important;
         }}
 
-        /* INPUTS */
         div[data-testid="stTextInput"] label,
         div[data-testid="stTextArea"] label {{
             color: var(--muted) !important;
@@ -777,7 +785,7 @@ def load_styles(light_mode=False):
         div[data-testid="stTextInput"] input:focus,
         div[data-testid="stTextArea"] textarea:focus {{
             border-color: var(--violet) !important;
-            box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.18) !important;
+            box-shadow: 0 0 0 3px rgba(167,139,250,0.18) !important;
         }}
 
         div[data-testid="stTextInput"] input::placeholder,
@@ -786,15 +794,12 @@ def load_styles(light_mode=False):
             opacity: 0.6 !important;
         }}
 
-        /* SEND BUTTON */
+        /* Submit button */
         div[data-testid="stFormSubmitButton"] button {{
             min-height: 50px !important;
             border-radius: var(--radius-sm) !important;
             border: none !important;
-            background: linear-gradient(
-                135deg,
-                #6366f1, #a855f7, #ec4899
-            ) !important;
+            background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899) !important;
             color: #ffffff !important;
             font-weight: 800 !important;
             font-size: 1rem !important;
@@ -804,7 +809,7 @@ def load_styles(light_mode=False):
 
         div[data-testid="stFormSubmitButton"] button:hover {{
             transform: translateY(-3px) scale(1.02) !important;
-            box-shadow: 0 16px 40px rgba(168, 85, 247, 0.35) !important;
+            box-shadow: 0 16px 40px rgba(168,85,247,0.35) !important;
         }}
 
         /* =========================================
@@ -813,11 +818,11 @@ def load_styles(light_mode=False):
 
         .stDownloadButton button {{
             border-radius: var(--radius-sm) !important;
-            border: 1px solid rgba(34, 211, 238, 0.30) !important;
+            border: 1px solid rgba(34,211,238,0.30) !important;
             background: linear-gradient(
                 135deg,
-                rgba(34, 211, 238, 0.18),
-                rgba(167, 139, 250, 0.18)
+                rgba(34,211,238,0.18),
+                rgba(167,139,250,0.18)
             ) !important;
             color: var(--text) !important;
             font-weight: 700 !important;
@@ -826,7 +831,7 @@ def load_styles(light_mode=False):
 
         .stDownloadButton button:hover {{
             transform: translateY(-3px) !important;
-            box-shadow: 0 12px 30px rgba(34, 211, 238, 0.20) !important;
+            box-shadow: 0 12px 30px rgba(34,211,238,0.22) !important;
         }}
 
         /* =========================================
@@ -840,7 +845,13 @@ def load_styles(light_mode=False):
         }}
 
         .footer-text {{
-            background: linear-gradient(90deg, var(--muted), var(--cyan), var(--violet), var(--muted));
+            background: linear-gradient(
+                90deg,
+                {theme["footer_from"]},
+                var(--cyan),
+                var(--violet),
+                {theme["footer_from"]}
+            );
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -868,9 +879,9 @@ def load_styles(light_mode=False):
         }}
 
         @keyframes floatGlow {{
-            0%   {{ transform: translate(0, 0) scale(1); }}
-            50%  {{ transform: translate(-20px, 18px) scale(1.08); }}
-            100% {{ transform: translate(10px, -10px) scale(0.96); }}
+            0%   {{ transform: translate(0,0) scale(1); }}
+            50%  {{ transform: translate(-20px,18px) scale(1.08); }}
+            100% {{ transform: translate(10px,-10px) scale(0.96); }}
         }}
 
         @keyframes gradientFlow {{
@@ -899,25 +910,18 @@ def load_styles(light_mode=False):
             to   {{ width: 60px; opacity: 1; }}
         }}
 
-        @keyframes pulse {{
-            0%, 100% {{ box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }}
-            50%       {{ box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }}
-        }}
-
-        /* Staggered animation delays for cards */
+        /* Staggered card reveals */
         .glass-card:nth-child(1) {{ animation-delay: 0.05s; }}
         .glass-card:nth-child(2) {{ animation-delay: 0.12s; }}
         .glass-card:nth-child(3) {{ animation-delay: 0.19s; }}
         .glass-card:nth-child(4) {{ animation-delay: 0.26s; }}
 
         /* =========================================
-           MOBILE
+           MOBILE RESPONSIVE
         ========================================= */
 
         @media (max-width: 768px) {{
-            .block-container {{
-                padding: 1rem 1rem 2.5rem !important;
-            }}
+            .block-container {{ padding: 1rem 1rem 2.5rem !important; }}
 
             div[data-testid="stHorizontalBlock"] {{
                 flex-direction: column !important;
@@ -934,20 +938,10 @@ def load_styles(light_mode=False):
             .hero-card,
             .timeline-card,
             .skill-card,
-            .education-card {{
-                min-width: 0;
-                overflow-wrap: anywhere;
-            }}
+            .education-card {{ min-width: 0; overflow-wrap: anywhere; }}
 
-            .hero-card {{
-                padding: 1.5rem;
-            }}
-
-            .hero-name {{
-                font-size: clamp(2.2rem, 10vw, 3rem);
-                overflow-wrap: anywhere;
-            }}
-
+            .hero-card {{ padding: 1.5rem; }}
+            .hero-name {{ font-size: clamp(2.2rem, 10vw, 3rem); overflow-wrap: anywhere; }}
             .hero-role {{ font-size: 1rem; }}
             .hero-summary {{ font-size: 0.95rem; line-height: 1.75; }}
             .link-row {{ gap: 0.5rem; }}
@@ -968,42 +962,17 @@ def load_styles(light_mode=False):
             .project-image-wrap {{ height: clamp(160px, 55vw, 220px); }}
             .contact-card {{ padding: 1.25rem; }}
             div[data-testid="stForm"] {{ padding: 1rem !important; }}
-            .stDownloadButton,
-            .stDownloadButton button {{ width: 100% !important; }}
+            .stDownloadButton, .stDownloadButton button {{ width: 100% !important; }}
             .footer {{ padding-top: 2rem; line-height: 1.6; }}
         }}
 
         @media (max-width: 480px) {{
-            .block-container {{
-                padding-left: 0.75rem !important;
-                padding-right: 0.75rem !important;
-            }}
-
-            .hero-card {{
-                padding: 1.2rem;
-                border-radius: 18px;
-            }}
-
+            .block-container {{ padding-left: 0.75rem !important; padding-right: 0.75rem !important; }}
+            .hero-card {{ padding: 1.2rem; border-radius: 18px; }}
             .eyebrow {{ font-size: 0.7rem; letter-spacing: 0.12em; }}
-
-            .link-row {{
-                display: grid;
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }}
-
-            .icon-link {{
-                justify-content: center;
-                min-width: 0;
-                padding: 0.65rem 0.5rem;
-                font-size: 0.85rem;
-            }}
-
-            .stat-card,
-            .skill-card,
-            .timeline-card,
-            .project-body,
-            .education-card {{ padding: 1rem; }}
-
+            .link-row {{ display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }}
+            .icon-link {{ justify-content: center; min-width: 0; padding: 0.65rem 0.5rem; font-size: 0.85rem; }}
+            .stat-card, .skill-card, .timeline-card, .project-body, .education-card {{ padding: 1rem; }}
             .stat-label {{ font-size: 0.72rem; }}
             .skill-pill {{ max-width: 100%; overflow-wrap: anywhere; }}
             div[data-testid="stForm"] {{ padding: 0.85rem !important; }}
